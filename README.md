@@ -25,13 +25,21 @@ and checks for overflow. The current test suite contains three tests.
 
 ## Client
 
-The client currently contains dependency setup and the IDL destination folder.
-Client scripts will be added as the tutorial progresses.
+The client contains a TypeScript CLI, devnet configuration, and copies of the
+generated program IDL and TypeScript type in `src/idl/`. Available commands are
+`status`, `balance`, `airdrop`, `init`, `increment`, and `get`.
 
 ```bash
 cd counter-client
 npm ci
+npm run cli -- status
+npm run cli -- balance
 ```
+
+Run these commands from `counter-client/`. The client uses devnet and loads the
+local practice wallet configured in `src/config.ts`. Initialize your counter
+with `npm run cli -- init` before using `increment` or `get`; `init` is only
+needed once per wallet for a given program ID on that cluster.
 
 ## Local configuration and secrets
 
